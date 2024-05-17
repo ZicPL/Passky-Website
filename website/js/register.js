@@ -11,8 +11,7 @@ loadData().then(() => {
 	// 	}
 	// }
 
-	// document.getElementById("passky-server").placeholder = lang["server"];
-	document.getElementById('passky-server').value = 'passky.horbaczewski.info';
+	document.getElementById("passky-server").placeholder = lang["server"];
 	document.getElementById("username").placeholder = lang["username"];
 	document.getElementById("email").placeholder = lang["email"];
 	document.getElementById("password").placeholder = lang["password"];
@@ -110,8 +109,7 @@ function changeDialog(style, text){
 
 function onBtnClick(){
 
-	// let url = document.getElementById("passky-server").value;
-	const url = 'passky.horbaczewski.info';
+	let url = document.getElementById("passky-server").value;
 	const username = document.getElementById("username").value.toLowerCase();
 	const email = document.getElementById("email").value;
 	const password = document.getElementById("password").value;
