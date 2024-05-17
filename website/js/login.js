@@ -16,8 +16,7 @@ loadData().then(() => {
 	if(readData('username') !== null && typeof(readData('username')) !== 'undefined') document.getElementById('username').value = readData('username');
 
 	//Languages
-	// document.getElementById("passky-server").placeholder = lang["server"];
-	document.getElementById('passky-server').value = 'passky.horbaczewski.info';
+	document.getElementById("passky-server").placeholder = lang["server"];
 	document.getElementById("username").placeholder = lang["username"];
 	document.getElementById("password").placeholder = lang["password"];
 	document.getElementById("btn_signin").innerText = lang["signin"];
