@@ -3,20 +3,21 @@ loadData().then(() => {
 	if(isSessionValid()) window.location.href = 'passwords.html';
 
 	let server = readData('url');
-	if(server !== null && typeof(server) !== 'undefined'){
-		let servers = [...document.getElementById('passky-server2').options].map(v => v.value);
-		if(servers.includes(server)){
-			document.getElementById('passky-server2').value = server;
-		}else{
-			document.getElementById('passky-server').value = server;
-			toggleServerPicker('passky-server', 'passky-server2', 'server-picker');
-		}
-	}
+	// if(server !== null && typeof(server) !== 'undefined'){
+	// 	let servers = [...document.getElementById('passky-server2').options].map(v => v.value);
+	// 	if(servers.includes(server)){
+	// 		document.getElementById('passky-server2').value = server;
+	// 	}else{
+	// 		document.getElementById('passky-server').value = server;
+	// 		toggleServerPicker('passky-server', 'passky-server2', 'server-picker');
+	// 	}
+	// }
 
 	if(readData('username') !== null && typeof(readData('username')) !== 'undefined') document.getElementById('username').value = readData('username');
 
 	//Languages
-	document.getElementById("passky-server").placeholder = lang["server"];
+	// document.getElementById("passky-server").placeholder = lang["server"];
+	document.getElementById('passky-server').value = 'passky.horbaczewski.info';
 	document.getElementById("username").placeholder = lang["username"];
 	document.getElementById("password").placeholder = lang["password"];
 	document.getElementById("btn_signin").innerText = lang["signin"];
@@ -41,9 +42,9 @@ document.getElementById("forgot_username").addEventListener("click", () => {
 	show("dialog");
 });
 
-document.getElementById("server-picker").addEventListener("click", () => {
-	toggleServerPicker('passky-server', 'passky-server2', 'server-picker');
-});
+// document.getElementById("server-picker").addEventListener("click", () => {
+// 	toggleServerPicker('passky-server', 'passky-server2', 'server-picker');
+// });
 
 document.getElementById('passky-logo').addEventListener('click', () => {
 	debugMode++;
@@ -54,17 +55,17 @@ document.getElementById('passky-logo').addEventListener('click', () => {
 	}
 });
 
-function toggleServerPicker(id, id2, buttonID){
-	if(isfHidden(id)){
-		fhide(id2);
-		fshow(id, 'block');
-		document.getElementById(buttonID).innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 secondaryColor' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><circle cx='6' cy='10' r='2'></circle><path d='M6 6v2'></path><path d='M6 12v8'></path><circle cx='12' cy='16' r='2'></circle><path d='M12 4v4'></path><path d='M12 12v2'></path><path d='M12 18v2'></path><circle cx='18' cy='7' r='2'></circle><path d='M18 4v1'></path><path d='M18 9v5'></path><path d='M18 18v2'></path><path d='M3 3l18 18'></path></svg>";
-	}else{
-		fhide(id);
-		fshow(id2, 'block');
-		document.getElementById(buttonID).innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 secondaryColor' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><rect x='4' y='8' width='4' height='4'></rect><line x1='6' y1='4' x2='6' y2='8'></line><line x1='6' y1='12' x2='6' y2='20'></line><rect x='10' y='14' width='4' height='4'></rect><line x1='12' y1='4' x2='12' y2='14'></line><line x1='12' y1='18' x2='12' y2='20'></line><rect x='16' y='5' width='4' height='4'></rect><line x1='18' y1='4' x2='18' y2='5'></line><line x1='18' y1='9' x2='18' y2='20'></line></svg>";
-	}
-}
+// function toggleServerPicker(id, id2, buttonID){
+// 	if(isfHidden(id)){
+// 		fhide(id2);
+// 		fshow(id, 'block');
+// 		document.getElementById(buttonID).innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 secondaryColor' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><circle cx='6' cy='10' r='2'></circle><path d='M6 6v2'></path><path d='M6 12v8'></path><circle cx='12' cy='16' r='2'></circle><path d='M12 4v4'></path><path d='M12 12v2'></path><path d='M12 18v2'></path><circle cx='18' cy='7' r='2'></circle><path d='M18 4v1'></path><path d='M18 9v5'></path><path d='M18 18v2'></path><path d='M3 3l18 18'></path></svg>";
+// 	}else{
+// 		fhide(id);
+// 		fshow(id2, 'block');
+// 		document.getElementById(buttonID).innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 secondaryColor' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><rect x='4' y='8' width='4' height='4'></rect><line x1='6' y1='4' x2='6' y2='8'></line><line x1='6' y1='12' x2='6' y2='20'></line><rect x='10' y='14' width='4' height='4'></rect><line x1='12' y1='4' x2='12' y2='14'></line><line x1='12' y1='18' x2='12' y2='20'></line><rect x='16' y='5' width='4' height='4'></rect><line x1='18' y1='4' x2='18' y2='5'></line><line x1='18' y1='9' x2='18' y2='20'></line></svg>";
+// 	}
+// }
 
 function changeDialog(style, text){
 	switch(style){
@@ -88,25 +89,25 @@ function changeDialog(style, text){
 			document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-blue-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='8' cy='15' r='4' /><line x1='10.85' y1='12.15' x2='19' y2='4' /><line x1='18' y1='5' x2='20' y2='7' /><line x1='15' y1='8' x2='17' y2='10' /></svg>";
 
 			document.getElementById('dialog-title').innerText = lang["forgot_username"];
-			document.getElementById('dialog-text').innerHTML = "<input id='passky-server2' value='horbaczewski.info' name='server' type='text' autocomplete='server' class='tertiaryBackgroundColor tertiaryColor primaryBorderColor appearance-none block w-full pl-10 px-3 py-2 border rounded-tl-md focus:outline-none sm:text-sm' placeholder='Server' disabled>";
+			document.getElementById('dialog-text').innerHTML = "<input id='passky-server' value='horbaczewski.info' name='server' type='text' autocomplete='server' class='tertiaryBackgroundColor tertiaryColor primaryBorderColor appearance-none block w-full pl-10 px-3 py-2 border rounded-tl-md focus:outline-none sm:text-sm' placeholder='Server' disabled>";
 
 			document.getElementById("fu_server").placeholder = lang["server"];
 			document.getElementById("fu_email").placeholder = lang["email"];
 
-			document.getElementById("fu_server-picker").addEventListener("click", () => {
-				toggleServerPicker('fu_server', 'fu_server2', 'fu_server-picker');
-			});
+			// document.getElementById("fu_server-picker").addEventListener("click", () => {
+			// 	toggleServerPicker('fu_server', 'fu_server2', 'fu_server-picker');
+			// });
 
-			let server = readData('url');
-			if(server !== null && typeof(server) !== 'undefined'){
-				let servers = [...document.getElementById('fu_server2').options].map(v => v.value);
-				if(servers.includes(server)){
-					document.getElementById('fu_server2').value = server;
-				}else{
-					document.getElementById('fu_server').value = server;
-					toggleServerPicker('fu_server', 'fu_server2', 'fu_server-picker');
-				}
-			}
+			// let server = readData('url');
+			// if(server !== null && typeof(server) !== 'undefined'){
+			// 	let servers = [...document.getElementById('fu_server2').options].map(v => v.value);
+			// 	if(servers.includes(server)){
+			// 		document.getElementById('fu_server2').value = server;
+			// 	}else{
+			// 		document.getElementById('fu_server').value = server;
+			// 		toggleServerPicker('fu_server', 'fu_server2', 'fu_server-picker');
+			// 	}
+			// }
 
 			document.getElementById('dialog-button-cancel').style.display = 'initial';
 
@@ -165,14 +166,15 @@ function changeDialog(style, text){
 
 function login_check(){
 
-	let url = document.getElementById("passky-server").value;
+	// let url = document.getElementById("passky-server").value;
+	const url = 'passky.horbaczewski.info';
 	const username = document.getElementById("username").value.toLowerCase();
 	const password = document.getElementById("password").value;
 	const otp = document.getElementById("otp").value.replace(/\s/g, '');
 
-	if(isfHidden('passky-server')){
-		url = document.getElementById('passky-server2').value;
-	}
+	// if(isfHidden('passky-server')){
+	// 	url = document.getElementById('passky-server2').value;
+	// }
 
 	if(PasswordEntropy.calculate(password) < 75){
 		changeDialog(1, lang["2"]);
@@ -257,9 +259,9 @@ function forget_username(){
 	let url = document.getElementById("fu_server").value;
 	const email = document.getElementById("fu_email").value;
 
-	if(isfHidden('fu_server')){
-		url = document.getElementById('fu_server2').value;
-	}
+	// if(isfHidden('fu_server')){
+	// 	url = document.getElementById('fu_server2').value;
+	// }
 
 	changeDialog(4, "sending_email");
 	show('dialog');
