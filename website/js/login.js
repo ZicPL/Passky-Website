@@ -88,7 +88,7 @@ function changeDialog(style, text){
 			document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-blue-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='8' cy='15' r='4' /><line x1='10.85' y1='12.15' x2='19' y2='4' /><line x1='18' y1='5' x2='20' y2='7' /><line x1='15' y1='8' x2='17' y2='10' /></svg>";
 
 			document.getElementById('dialog-title').innerText = lang["forgot_username"];
-			document.getElementById('dialog-text').innerHTML = "<input id='passky-server' value='passky.horbaczewski.info' name='server' type='text' autocomplete='server' class='tertiaryBackgroundColor tertiaryColor primaryBorderColor appearance-none block w-full pl-10 px-3 py-2 border rounded-tl-md focus:outline-none sm:text-sm' placeholder='Server' disabled>";
+			document.getElementById('dialog-text').innerHTML = "<input id='passky-server' value='https://passky.horbaczewski.info' name='server' type='text' autocomplete='server' class='tertiaryBackgroundColor tertiaryColor primaryBorderColor appearance-none block w-full pl-10 px-3 py-2 border rounded-tl-md focus:outline-none sm:text-sm' placeholder='Server' disabled>";
 
 			// document.getElementById("fu_server").placeholder = lang["server"];
 			document.getElementById("fu_email").placeholder = lang["email"];
